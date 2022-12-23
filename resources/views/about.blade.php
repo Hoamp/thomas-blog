@@ -2,5 +2,6 @@
 
 @section('content')
     <h1>{{ $name }}</h1>
-    <img src="{{ $image }}" alt="">
+    <p>{{ $email }}</p>
+    <img src="{{ $image }}" alt="" class="img-thumbnail rounded-circle" width="200px">
 @endsection
