@@ -19,7 +19,8 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('home', [
-        "title" => "Home"
+        "title" => "Home",
+        "active" => "home"
     ]);
 });
 
@@ -29,23 +30,26 @@ Route::get('/about', function () {
         "image" => "/img/thomasjd.jpeg",
         "email" => "thomas@gmail.com",
         "title" => "About",
+        "active" => "about"
     ]);
 });
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('posts', [
-        'title' => "Post by Category : " . $category->name,
-        'posts' => $category->posts->load('category', 'author'),
-        'active' => 'categories'
-    ]);
-});
 
 Route::get('/categories', function () {
     return view('categories', [
         'title' => 'Post Categories',
         'categories' => Category::all(),
+        'active' => 'categories'
+    ]);
+});
+
+/* Nonaktif sementara
+Route::get('/categories/{category:slug}', function (Category $category) {
+    return view('posts', [
+        'title' => "Post by Category : " . $category->name,
+        'posts' => $category->posts->load('category', 'author'),
         'active' => 'categories'
     ]);
 });
@@ -57,3 +61,4 @@ Route::get('/authors/{author:username}', function (User $author) {
         'active' => 'posts'
     ]);
 });
+*/
