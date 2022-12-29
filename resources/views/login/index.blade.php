@@ -5,6 +5,14 @@
     <div class="col-md-5 border shadow-sm p-4 mt-5">
         <main class="form-signin w-100 m-auto">
             <h1 class="h3 mb-3 fw-normal text-center">Login</h1>
+
+            @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+                </div>
+            @endif
+            
             <form>
                 <div class="form-floating">
                     <label for="floatingInput">Email address</label>
