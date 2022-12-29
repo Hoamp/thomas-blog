@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
@@ -47,24 +48,10 @@ Route::get('/categories', function () {
     ]);
 });
 
-/* Nonaktif sementara
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('posts', [
-        'title' => "Post by Category : " . $category->name,
-        'posts' => $category->posts->load('category', 'author'),
-        'active' => 'categories'
-    ]);
-});
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::get('/authors/{author:username}', function (User $author) {
-    return view('posts', [
-        'title' => 'All Post By: ' . $author->name,
-        'posts' => $author->posts->load('category', 'author'),
-        'active' => 'posts'
-    ]);
-});
-*/
-
-Route::get('/login', [LoginController::class, 'index']);
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
