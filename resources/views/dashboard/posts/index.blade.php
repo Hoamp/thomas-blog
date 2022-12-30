@@ -7,6 +7,12 @@
 
     <div class="table-responsive col-md-8">
         <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create Post</a>
+        @if (session()->has('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>            
+        @endif
+        
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
