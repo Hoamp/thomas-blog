@@ -13,6 +13,7 @@
                 My Posts
                 </a>
             </li>
+            <hr class="mx-3">
             <li class="nav-item">
                 <a class="nav-link" href="/posts">
                 <span data-feather="list" class="align-text-bottom"></span>
