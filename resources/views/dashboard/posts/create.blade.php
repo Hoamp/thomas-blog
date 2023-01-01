@@ -57,7 +57,10 @@
                 @enderror
             </div>
             
-            <button type="submit" class="btn btn-primary mb-5">Create Post</button>
+            <div class="mb-5">
+                <button type="submit" class="btn btn-primary ">Create Post</button>
+                <a href="/dashboard/posts" class="btn btn-success"><span data-feather="arrow-left" class=""></span>Back</a>
+            </div>
         </form>
     </div>
 
