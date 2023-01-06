@@ -40,4 +40,5 @@
             </tbody>
         </table>
     </div>
+    {{-- <a href="/dashboard/categories/{{ $category->slug }}"></a> --}}
 @endsection

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,8 @@ use App\Http\Controllers\RegisterController;
 Route::get('/', function () {
     return view('home', [
         "title" => "Home",
-        "active" => "home"
+        "active" => "home",
+
     ]);
 });
 

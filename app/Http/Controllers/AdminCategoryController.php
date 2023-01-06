@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -109,5 +110,14 @@ class AdminCategoryController extends Controller
         $slug = SlugService::createSlug(Category::class, 'slug', $request->name);
 
         return response()->json(['slug' => $slug]);
+    }
+
+    public function check(Category $category)
+    {
+        /*
+        $post = Post::where('id', $category->id);
+
+        dd($post);
+        */
     }
 }
