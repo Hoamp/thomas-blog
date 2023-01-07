@@ -23,7 +23,7 @@
     </div>
 
     @if ($posts->count())
-        <div class="card mb-4">
+        <div class="card mb-4 shadow-sm">
             @if ($posts[0]->image)
                 <div class="" style="max-height: 350px; overflow: hidden">
                     <img src="{{ asset('storage/' . $posts[0]->image) }}" alt="{{ $posts[0]->category->name }}" class="img-fluid ">
@@ -47,13 +47,11 @@
             </div>
         </div>
     
-
-        <div class="container">
-            
+ 
             <div class="row">
                 @foreach ($posts->skip(1) as $post)
                     <div class="col-md-4 mb-4">
-                        <div class="card">
+                        <div class="card shadow-sm">
                             <div class="position-absolute p-2 " style="background-color: rgba(0, 0, 0, 0.7)"><a href="/posts?category={{ $post->category->slug }}" class="text-white text-decoration-none">{{ $post->category->name }}</a></div>
                             @if ($post->image)
                                 <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid ">
@@ -76,7 +74,7 @@
                 @endforeach
 
             </div>
-        </div>
+
 
     @else
         <p class="text-center fs-4">No post found</p>

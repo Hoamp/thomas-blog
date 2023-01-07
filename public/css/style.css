@@ -1,3 +1,7 @@
+body{
+    background-color: #EEEEEE;
+}
+
 .form-signin .form-floating:focus-within {
     z-index: 2;
 }
@@ -20,6 +24,6 @@
 
 
 .posts{
-    background-color: #FF8E9E;
+    background-color: #CD0404;
 
 }

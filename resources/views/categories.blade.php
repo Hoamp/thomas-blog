@@ -1,6 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
+<div class="container mt-4">
+
     <h1>Post Categories</h1>
 
     <div class="container">
@@ -19,4 +21,6 @@
             @endforeach
         </div>
     </div>
+</div>
+
 @endsection
