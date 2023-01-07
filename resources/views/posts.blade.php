@@ -1,6 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
+<div class="container mt-4">
+
     <h1 class="text-center mb-3">{{ $title }}</h1>
 
     <div class="row justify-content-center mb-3">
@@ -82,5 +84,6 @@
     <div class="d-flex justify-content-center">
         {{ $posts->links() }}
     </div>
+</div>
 
 @endsection
