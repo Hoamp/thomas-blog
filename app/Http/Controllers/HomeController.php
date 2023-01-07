@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-
-        return view('home', ["title" => 'Home']);
+        $post = Post::latest()->paginate(6);
+        return view('home', ["title" => 'Home', "posts" => $post]);
     }
 }
