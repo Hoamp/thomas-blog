@@ -19,11 +19,14 @@ body{
 }
   
 .hero{
-    background-color: #FAF8F1;
+    background-color: #FFC6D3;
 }
 
 
+.ingfo{
+    background-color: #82C3EC;
+}
+
 .posts{
     background-color: #EEEEEE;
-
 }

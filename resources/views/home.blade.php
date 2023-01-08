@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+    {{-- Hero Section --}}
     <section class="hero">
         <div class="container py-5">
             <div class="row my-3 mb-4">
@@ -23,7 +24,44 @@
             </div>
         </div>
     </section>
+    {{-- End Hero --}}
 
+    {{-- Start info --}}
+    <section class="ingfo ">
+        <div class="container pt-4 pb-2">
+            <div class="row">
+                <div class="col-md-4 d-flex justify-content-center mb-2">
+                    <a href="/authors" class="text-decoration-none text-center text-dark">
+                        <img src="/img/icon/user.svg" alt="user" width="100px"><br>
+                        <div class="mt-3 text-dark">
+                            <h5><strong>{{ $user }}</strong> Users</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 d-flex justify-content-center mb-2">
+                    <a href="/posts" class="text-decoration-none text-center text-dark">
+                        <img src="/img/icon/align-justify.svg" alt="user" width="100px"><br>
+                        <div class="mt-3 text-dark">
+                            <h5><strong>{{ $post }}</strong> Posts</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 d-flex justify-content-center mb-2">
+                    <a href="/categories" class="text-decoration-none text-center text-dark">
+                        <img src="/img/icon/archive.svg" alt="user" width="100px"><br>
+                        <div class="mt-3 text-dark">
+                            <h5><strong>{{ $category }}</strong> Categories</h5>
+                        </div>
+                    </a>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+    {{-- End Infor --}}
+
+    {{-- Start Posts --}}
     <section class="posts">
         <div class="container py-5">
             <div class="text-center text-dark mb-5">
@@ -58,4 +96,5 @@
             </div>
         </div>
     </section>
+    {{-- End Posts --}}
 @endsection
