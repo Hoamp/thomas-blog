@@ -7,7 +7,12 @@
             <div class="row my-3 mb-4">
                 <div class="col-md-8">
                     <h1><span class="blog bg-white px-3 shadow-sm rounded-lg text-danger">Thomas</span> Blog</h1>
-                    <p class="lead mt-3 ">Mau Nyari Apa Hari Ini?</p>
+                    <span class="lead mt-3 d-block">Mau cari 
+                        <a href="/posts?category=web-programming" class="badge btn-warning text-white">Web Programming</a>
+                        <a href="/posts?category=web-design" class="badge btn-primary text-white">Web Design</a>
+                        <a href="/posts?category=personal" class="badge btn-success text-white">Personal</a>
+                        atau mau nyari aku? ehe
+                    </span>
                     <hr class="my-3 mr-5">
                     <form action="/posts" method="GET" class="card-search card-sm mt-4 mr-5">
                         <div class="card-body row no-gutters align-items-center" style="padding: 0">
@@ -17,9 +22,10 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-4">
-                    <img src="" alt="a">
-                    <h1>Gambar</h1>
+                <div class="col-md-4 d-flex  justify-content-center">
+                    <div class="">
+                        <img src="/img/main/post-long.png" alt="gambar post" width="280px">
+                    </div>
                 </div>
             </div>
         </div>

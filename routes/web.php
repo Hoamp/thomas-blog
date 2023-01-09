@@ -32,7 +32,7 @@ Route::get('/about', function () {
         "title" => "About",
         "active" => "about"
     ]);
-});
+})->middleware('auth');
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
