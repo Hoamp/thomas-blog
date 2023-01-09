@@ -14,21 +14,21 @@
                         <h6 class="font-weight-bold text-white mt-3">Perusahaan</h6>
                         <hr class="bg-white">
                         <ul>
-                            <li class="link-footer"><a href="/p/tentang" class="text-white">Nda Ado</a></li>
+                            <li class="link-footer"><a href="" class="text-white">Nda Ado</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4 col-6">
                         <h6 class="font-weight-bold text-white mt-3">Belajar</h6>
                         <hr class="bg-white">
                         <ul>
-                            <li class="link-footer"><a href="https://santrikoding.com/artikel" class="text-white">Artikel</a></li>
+                            <li class="link-footer"><a href="" class="text-white">Artikel</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4">
                         <h6 class="font-weight-bold text-white mt-3">Explore</h6>
                         <hr class="bg-white">
                         <ul>
-                            <li class="link-footer"><a href="https://santrikoding.com/stucks" class="text-white">Stuck Over</a></li>
+                            <li class="link-footer"><a href="" class="text-white">assasd    </a></li>
                         </ul>
                     </div>
                 </div>

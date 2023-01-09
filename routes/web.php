@@ -9,6 +9,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Post;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,13 @@ Route::get('/categories', function () {
         'title' => 'Post Categories',
         'categories' => Category::all(),
         'active' => 'categories'
+    ]);
+});
+
+Route::get('/authors', function () {
+    return view('authors', [
+        'title' => "All Authors",
+        'users' => User::all()
     ]);
 });
 
