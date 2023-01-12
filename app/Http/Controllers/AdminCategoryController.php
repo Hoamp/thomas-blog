@@ -102,7 +102,10 @@ class AdminCategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        Post::where('category_id', $category->id)->delete();
+        Category::destroy($category->id);
+
+        return redirect('/dashboard/categories')->with('success', 'Category Has Been Deleted');
     }
 
     public function checkSlug(Request $request)
@@ -110,14 +113,5 @@ class AdminCategoryController extends Controller
         $slug = SlugService::createSlug(Category::class, 'slug', $request->name);
 
         return response()->json(['slug' => $slug]);
-    }
-
-    public function check(Category $category)
-    {
-        /*
-        $post = Post::where('id', $category->id);
-
-        dd($post);
-        */
     }
 }
