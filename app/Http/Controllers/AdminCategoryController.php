@@ -105,7 +105,7 @@ class AdminCategoryController extends Controller
         Post::where('category_id', $category->id)->delete();
         Category::destroy($category->id);
 
-        return redirect('/dashboard/categories')->with('success', 'Category Has Been Deleted');
+        return redirect('/dashboard/categories')->with('success', 'Category And Posts Has Been Deleted');
     }
 
     public function checkSlug(Request $request)
