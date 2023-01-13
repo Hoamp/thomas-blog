@@ -18,6 +18,23 @@
                     </div>
                 @enderror
             </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Profile Image</label>
+                <input type="hidden" name="oldAvatar" value="{{ $profile->avatar }}">
+                @if ($profile->avatar)
+                    <img src="{{ asset('storage/avatar/' . $profile->avatar) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                @else
+                    <img class="img-preview img-fluid mb-3 col-sm-5">
+                @endif
+
+                <input class="form-control @error('avatar') is-invalid @enderror" type="file" id="image" name="avatar" onchange="previewImage()">
+                @error('avatar')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
             
             <div class="mb-5">
                 <button type="submit" class="btn btn-primary ">Update Profile</button>
@@ -27,14 +44,19 @@
     </div>
 
     <script>
-        // const name = document.querySelector('#name');
-        // const slug = document.querySelector('#slug');
+         function previewImage(){
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
 
-        // name.addEventListener('change', function(){
-        //     fetch('/dashboard/categories/checkSlug?name=' + name.value)
-        //         .then(response => response.json())
-        //         .then(data => slug.value = data.slug);
-        // });
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent){
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
 
     </script>
 @endsection

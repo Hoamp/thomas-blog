@@ -13,7 +13,7 @@
     <div class="container mt-4">
         <div class="row text-center">
             <div class="col">
-                <img src="/img/main/{{ auth()->user()->avatar }}" alt="PP" class="rounded-circle img-thumbnail" width="200px">
+                <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="PP" class="rounded-circle img-thumbnail" width="200px">
             </div>
         </div>
 

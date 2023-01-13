@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 class ProfileController extends Controller
 {
     /**
@@ -57,7 +60,9 @@ class ProfileController extends Controller
      */
     public function edit(User $user)
     {
-        return view('dashboard.profile.edit');
+        return view('dashboard.profile.edit', [
+            'profile' => auth()->user()
+        ]);
     }
 
     /**
@@ -69,9 +74,20 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $validatedData = $request->validate([
-            'username' => 'required'
-        ]);
+        $rules = [
+            'username' => 'required',
+            'avatar' => 'image|file'
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        if ($request->file('avatar')) {
+            if ($request->oldAvatar != "userprofile.jpg") {
+                Storage::delete($request->oldAvatar);
+            }
+            $validatedData['avatar'] = $request->file('avatar')->store('avatar');
+        }
+
 
         User::where('id', auth()->user()->id)->update($validatedData);
 
