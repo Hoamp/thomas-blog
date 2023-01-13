@@ -23,9 +23,9 @@
                 <label for="image" class="form-label">Profile Image</label>
                 <input type="hidden" name="oldAvatar" value="{{ $profile->avatar }}">
                 @if ($profile->avatar)
-                    <img src="{{ asset('storage/avatar/' . $profile->avatar) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                    <img src="{{ asset('storage/' . $profile->avatar) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block rounded-circle img-thumbnail">
                 @else
-                    <img class="img-preview img-fluid mb-3 col-sm-5">
+                    <img class="img-preview img-fluid mb-3 col-sm-5 rounded-circle img-thumbnail">
                 @endif
 
                 <input class="form-control @error('avatar') is-invalid @enderror" type="file" id="image" name="avatar" onchange="previewImage()">

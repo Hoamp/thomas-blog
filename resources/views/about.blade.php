@@ -2,12 +2,8 @@
 
 @section('content')
 <div class="container mt-4">
-    <h1>{{ $name }}</h1>
-    <p>{{ $email }}</p>
-    <img src="{{ $image }}" alt="" class="img-thumbnail rounded-circle" width="200px">
+    <h1>{{ auth()->user()->username }}</h1>
+    <p>{{ auth()->user()->email }}</p>
+    <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="" class="img-thumbnail rounded-circle" width="200px">
 </div>
-@auth
-    <img src="/img/main/{{ auth()->user()->avatar }}" alt="PP">
-@endauth
-
 @endsection

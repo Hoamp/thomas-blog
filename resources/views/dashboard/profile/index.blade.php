@@ -22,7 +22,13 @@
             <small class="text-muted">{{ auth()->user()->email }}</small>
         </div>
 
-        <a href="/dashboard/profile/{{ auth()->user()->id }}/edit">Edit Profile</a>
+        <div class="row text-center mt-2">
+            <div class="col-md-5"></div>
+            <div class="col-md-2">
+                <a href="/dashboard/profile/{{ auth()->user()->id }}/edit" class="btn btn-primary">Edit Profile</a>
+            </div>
+            <div class="col-md-5"></div>
+        </div>
     </div>
 
 @endsection
