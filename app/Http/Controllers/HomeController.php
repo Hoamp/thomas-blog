@@ -15,6 +15,7 @@ class HomeController extends Controller
         $author = User::count();
         $category = Category::count();
         $post = Post::count();
+        $category_name = Category::latest()->paginate(2);
 
         // Untuk last posts
         $posts = Post::latest()->paginate(6);
@@ -27,7 +28,8 @@ class HomeController extends Controller
                 "posts" => $posts,
                 "post" => $post,
                 "category" => $category,
-                "user" => $author
+                "user" => $author,
+                "category_name" => $category_name
             ]
         );
     }

@@ -8,10 +8,17 @@
                 <div class="col-md-8">
                     <h1><span class="blog bg-white px-3 shadow-sm rounded-lg text-danger">Thomas</span> Blog</h1>
                     <span class="lead mt-3 d-block">Mau cari 
-                        <a href="/posts?category=web-programming" class="badge btn-warning text-white">Web Programming</a>
-                        <a href="/posts?category=web-design" class="badge btn-primary text-white">Web Design</a>
-                        <a href="/posts?category=personal" class="badge btn-success text-white">Personal</a>
+                        @foreach ($category_name as $categoryy)
+                            @if ($categoryy->id % 2 == 1)
+                            <a href="/posts?category={{ $categoryy->slug }}" class="badge btn-primary text-white">{{ $categoryy->name }}</a>
+                                
+                            @else
+                            <a href="/posts?category={{ $categoryy->slug }}" class="badge btn-warning text-white">{{ $categoryy->name }}</a>
+                                
+                            @endif
+                        @endforeach
                         atau mau nyari aku? ehe
+
                     </span>
                     <hr class="my-3 mr-5">
                     <form action="/posts" method="GET" class="card-search card-sm mt-4 mr-5">
