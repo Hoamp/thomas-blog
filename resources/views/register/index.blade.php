@@ -35,7 +35,7 @@
                         <div class="invalid-feedback mb-3">{{ $message }}</div>
                     @enderror
                 </div>
-        
+                <input type="hidden" name="avatar" value="avatar/userprofile.jpg">
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
             </form>
             <small class="text-center d-block mt-4">Have Account? <a href="/login">Login!</a></small>
