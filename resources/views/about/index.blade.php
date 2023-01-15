@@ -8,10 +8,11 @@
         <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="" class="img-thumbnail rounded-circle" width="200px">
     </div>
 
-    <div class="text-center text-dark mb-5">
+    <div class="text-center text-dark my-5">
         <h1>Last Posts</h1>
         <hr width="220px" class="border-primary">
     </div>
+
     <div class="row">
         @foreach ($posts as $post)
             <div class="col-md-4 mb-3">
@@ -37,5 +38,6 @@
             </div>
         @endforeach   
     </div>
+
 </div>
 @endsection

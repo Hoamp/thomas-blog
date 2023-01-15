@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\HomeController;
@@ -25,15 +26,7 @@ use App\Models\User;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/about', function () {
-    return view('about', [
-        "name" => 'Thomas Setiawan',
-        "image" => "/img/thomasjd.jpeg",
-        "email" => "thomas@gmail.com",
-        "title" => "About",
-        "active" => "about"
-    ]);
-})->middleware('auth');
+Route::get('/about', [AboutController::class, 'index'])->middleware('auth');
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
