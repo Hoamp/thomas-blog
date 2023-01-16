@@ -82,7 +82,7 @@ class ProfileController extends Controller
         $validatedData = $request->validate($rules);
 
         if ($request->file('avatar')) {
-            if ($request->oldAvatar != "userprofile.jpg") {
+            if ($request->oldAvatar != "avatar/userprofile.jpg") {
                 Storage::delete($request->oldAvatar);
             }
             $validatedData['avatar'] = $request->file('avatar')->store('avatar');

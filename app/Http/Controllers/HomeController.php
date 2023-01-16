@@ -15,7 +15,7 @@ class HomeController extends Controller
         $author = User::count();
         $category = Category::count();
         $post = Post::count();
-        $category_name = Category::latest()->paginate(2);
+        $category_name = Category::latest()->paginate(3);
 
         // Untuk last posts
         $posts = Post::latest()->paginate(6);

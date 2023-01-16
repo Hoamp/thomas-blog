@@ -9,12 +9,12 @@
                     <h1><span class="blog bg-white px-3 shadow-sm rounded-lg text-danger">Thomas</span> Blog</h1>
                     <span class="lead mt-3 d-block">Mau cari 
                         @foreach ($category_name as $categoryy)
-                            @if ($categoryy->id % 2 == 1)
-                            <a href="/posts?category={{ $categoryy->slug }}" class="badge btn-primary text-white">{{ $categoryy->name }}</a>
-                                
+                            @if ($categoryy->id % 3 == 0)
+                                <a href="/posts?category={{ $categoryy->slug }}" class="badge btn-primary text-white">{{ $categoryy->name }}</a>
+                            @elseif($categoryy->id % 2 == 1)
+                                <a href="/posts?category={{ $categoryy->slug }}" class="badge btn-warning text-white">{{ $categoryy->name }}</a>
                             @else
-                            <a href="/posts?category={{ $categoryy->slug }}" class="badge btn-warning text-white">{{ $categoryy->name }}</a>
-                                
+                                <a href="/posts?category={{ $categoryy->slug }}" class="badge btn-danger text-white">{{ $categoryy->name }}</a>
                             @endif
                         @endforeach
                         atau mau nyari aku? ehe
