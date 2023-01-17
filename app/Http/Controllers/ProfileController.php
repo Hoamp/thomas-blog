@@ -76,7 +76,8 @@ class ProfileController extends Controller
     {
         $rules = [
             'username' => 'required',
-            'avatar' => 'image|file'
+            'avatar' => 'image|file',
+            'bio' => 'required|max:30'
         ];
 
         $validatedData = $request->validate($rules);

@@ -9,8 +9,8 @@
     </div>
 
     <div class="text-center text-dark my-5">
-        <h1>Last Posts</h1>
-        <hr width="220px" class="border-primary">
+        <h1>Your Latest Posts</h1>
+        <hr width="300px" class="border-primary">
     </div>
 
     <div class="row">

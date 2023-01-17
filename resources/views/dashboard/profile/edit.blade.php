@@ -20,6 +20,16 @@
             </div>
 
             <div class="mb-3">
+                <label for="bio" class="form-label">Bio</label>
+                <input type="text" class="form-control " id="bio" name="bio" required autofocus value="{{ auth()->user()->bio }}">
+                @error('bio')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
+            <div class="mb-3">
                 <label for="image" class="form-label">Profile Image</label>
                 <input type="hidden" name="oldAvatar" value="{{ $profile->avatar }}">
                 @if ($profile->avatar)
