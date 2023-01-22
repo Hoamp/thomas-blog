@@ -20,4 +20,11 @@ class CommentController extends Controller
 
         return redirect('/posts/' . $request->slug);
     }
+
+    public function destroy(Comment $comment, Request $request)
+    {
+        Comment::destroy($comment->id);
+
+        return redirect('/posts/' . $request->slug);
+    }
 }

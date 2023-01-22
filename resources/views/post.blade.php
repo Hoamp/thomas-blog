@@ -47,13 +47,32 @@
 
                             <div class="mt-5">
                                 <h4 class="mb-3">Other Comments</h4>
-                                @foreach ($comments as $comment)
-                                    <div class="container">
+                                @forelse ($comments as $comment)
+                                    <div class="container mb-3">
                                         <div class="row">
                                             <div class="col-md-8">
                                                 <div class="card">
                                                     <div class="card-body">
-                                                        <div class="card-title"><img src="{{ asset('storage/' . $comment->author->avatar) }}" alt="PP" width="40px" class="rounded img-thumbnail mr-3">{{ $comment->author->username }}</div>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="card-title"><img src="{{ asset('storage/' . $comment->author->avatar) }}" alt="PP" width="40px" class="rounded img-thumbnail mr-3">{{ $comment->author->username }}</div>
+                                                            </div>
+                                                            <div class="col-md-7"></div>
+                                                            <div class="col-md-1">
+                                                                @if ($username === $comment->author->username)
+                                                                    
+                                                                    <form action="/comment/{{ $comment->id }}" method="post" class="d-inline">
+                                                                        @method('delete')
+                                                                        @csrf
+                                                                        <input type="hidden" name="slug" value="{{ $post->slug }}">
+                                                                        <button class="badge border-0" onclick="return confirm('Are you sure?')"><span data-feather="trash" class=""></span></button>
+                                                                    </form>
+
+                                                                @else
+                                                                    
+                                                                @endif
+                                                            </div>
+                                                        </div>
                                                         <hr >
                                                         <div class="card-text">{!! $comment->content !!}</div>
                                                     </div>
@@ -63,7 +82,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                @empty
+                                    <hr>
+                                    <h5 class="text-center">No Comment Here</h5>
+                                    <hr>
+                                @endforelse
                             </div>
                         </section>
                 

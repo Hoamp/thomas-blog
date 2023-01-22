@@ -35,17 +35,16 @@ class PostController extends Controller
     {
 
         $comments = Comment::latest()->where('post_id', $post->id)->paginate();
-        /*
-        foreach ($comments as $comment) {
-            $c = $comment->author;
+        $username = '';
+        if (auth()->user()) {
+            $username = auth()->user()->username;
         }
-        dd($c->avatar);
-        */
         return view('post', [
             "title" => "Single Post",
             "active" => "posts",
             "post" => $post,
-            "comments" => $comments
+            "comments" => $comments,
+            "username" => $username
         ]);
     }
 }
