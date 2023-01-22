@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
@@ -32,10 +33,19 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+
+        $comments = Comment::latest()->where('post_id', $post->id)->paginate();
+        /*
+        foreach ($comments as $comment) {
+            $c = $comment->author;
+        }
+        dd($c->avatar);
+        */
         return view('post', [
             "title" => "Single Post",
             "active" => "posts",
-            "post" => $post
+            "post" => $post,
+            "comments" => $comments
         ]);
     }
 }

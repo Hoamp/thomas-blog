@@ -25,6 +25,47 @@
                             {!! $post->body !!}
 
                         </article>
+                        
+                        <section class="mt-5">
+                            <hr>
+                            <h4>Comments</h4>
+                            <form action="/comment" method="post">
+                                @csrf
+                                <input type="hidden" value="{{ $post->id }}" name="post_id">
+                                <input type="hidden" name="slug" value="{{ $post->slug }}">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <input id="content" type="hidden" name="content" value="{{ old('content') }}">
+                                            <trix-editor input="content"></trix-editor>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary ">Post Comment</button>
+                            </form>
+
+                            <div class="mt-5">
+                                <h4 class="mb-3">Other Comments</h4>
+                                @foreach ($comments as $comment)
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="card-title"><img src="{{ asset('storage/' . $comment->author->avatar) }}" alt="PP" width="40px" class="rounded img-thumbnail mr-3">{{ $comment->author->username }}</div>
+                                                        <hr >
+                                                        <div class="card-text">{!! $comment->content !!}</div>
+                                                    </div>
+
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </section>
                 
                         <a href="/posts" class="d-block">Back</a>
                     </div>

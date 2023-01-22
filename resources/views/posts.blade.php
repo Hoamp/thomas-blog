@@ -47,35 +47,33 @@
             </div>
         </div>
     
- 
-            <div class="row">
-                @foreach ($posts->skip(1) as $post)
-                    <div class="col-md-4 mb-4">
-                        <div class="card shadow-sm">
-                            <div class="position-absolute p-2 " style="background-color: rgba(0, 0, 0, 0.7)"><a href="/posts?category={{ $post->category->slug }}" class="text-white text-decoration-none">{{ $post->category->name }}</a></div>
-                            @if ($post->image)
-                                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid ">
-                            @else
-                                <img src="https://source.unsplash.com/500x300?{{ $post->category->name }}" class="card-img-top" alt="{{ $post->category->name }}">
-                            @endif
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="/posts/{{ $post->slug }}" class="text-decoration-none">{{ $post->title }}</a></h5>
-                                <p>
-                                    <small class="text-muted">
-                                        <p>By : <a href="/posts?author={{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a> {{ $post->created_at->diffForHumans() }}</p>
-                                        
-                                    </small>
-                                </p>
-                                <p class="card-text">{{ $post->excerpt }}</p>
-                                <a href="/posts/{{ $post->slug }}" class="btn btn-primary">Read More</a>
-                            </div>
+
+        <div class="row">
+            @foreach ($posts->skip(1) as $post)
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="position-absolute p-2 " style="background-color: rgba(0, 0, 0, 0.7)"><a href="/posts?category={{ $post->category->slug }}" class="text-white text-decoration-none">{{ $post->category->name }}</a></div>
+                        @if ($post->image)
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid ">
+                        @else
+                            <img src="https://source.unsplash.com/500x300?{{ $post->category->name }}" class="card-img-top" alt="{{ $post->category->name }}">
+                        @endif
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="/posts/{{ $post->slug }}" class="text-decoration-none">{{ $post->title }}</a></h5>
+                            <p>
+                                <small class="text-muted">
+                                    <p>By : <a href="/posts?author={{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a> {{ $post->created_at->diffForHumans() }}</p>
+                                    
+                                </small>
+                            </p>
+                            <p class="card-text">{{ $post->excerpt }}</p>
+                            <a href="/posts/{{ $post->slug }}" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
-                @endforeach
+                </div>
+            @endforeach
 
-            </div>
-
-
+        </div>
     @else
         <p class="text-center fs-4">No post found</p>
     @endif
