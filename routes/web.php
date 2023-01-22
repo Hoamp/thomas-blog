@@ -10,6 +10,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CommentController;
 use App\Models\Post;
 use App\Models\User;
 
@@ -70,3 +71,6 @@ Route::resource('/dashboard/categories', AdminCategoryController::class)->except
 
 // Route ke Profile
 Route::resource('dashboard/profile', ProfileController::class)->middleware('auth');
+
+// comment
+Route::resource('comment', CommentController::class)->middleware('auth');
