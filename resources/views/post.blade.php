@@ -4,10 +4,10 @@
 
     <div class="container mt-4">
         <div class="row justify-content-center mb-5">
-            <div class="card">
-                <div class="card-body">
+            <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-body px-5 py-4">
                     
-                    <div class="col-md">
                         <h2 class="mb-3">{{ $post->title }}</h2>
 
                         <p>By : <a href="/posts?author={{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a> in <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></p>
@@ -51,7 +51,7 @@
                                     <div class="container mb-3">
                                         <div class="row">
                                             <div class="col-md-8">
-                                                <div class="card">
+                                                <div class="card shadow-sm">
                                                     <div class="card-body">
                                                         <div class="row">
                                                             <div class="col-md-4">
