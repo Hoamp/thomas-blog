@@ -14,10 +14,10 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(mt_rand(2, 8)),
+            'title' => $this->faker->sentence(mt_rand(4, 10)),
             'slug' => $this->faker->slug(),
             'excerpt' => $this->faker->paragraph(),
-            'body' => collect($this->faker->paragraphs(mt_rand(5, 10)))->map(fn ($p) => "<p?>$p</p>")->implode(''),
+            'body' => collect($this->faker->paragraphs(mt_rand(8, 15)))->map(fn ($p) => "<p?>$p</p>")->implode(''),
             'user_id' => mt_rand(1, 3),
             'category_id' => mt_rand(1, 3)
         ];

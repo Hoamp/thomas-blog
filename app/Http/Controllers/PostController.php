@@ -33,18 +33,21 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-
         $comments = Comment::latest()->where('post_id', $post->id)->paginate();
         $username = '';
         if (auth()->user()) {
             $username = auth()->user()->username;
         }
+
+        $posts = Post::latest()->paginate(5);
+
         return view('post', [
             "title" => "Single Post",
             "active" => "posts",
             "post" => $post,
             "comments" => $comments,
-            "username" => $username
+            "username" => $username,
+            "posts" => $posts
         ]);
     }
 }
