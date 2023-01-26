@@ -15,6 +15,9 @@
 
         {{-- Feather icons --}}
         <script src="https://unpkg.com/feather-icons"></script>
+
+        {{-- CKEDITOR --}}
+        <link rel="stylesheet" href="/css/sample.css">
         
         <title>Thomas | {{ $title }}</title>
     </head>

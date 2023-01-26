@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Comment;
 // use Clockwork\Storage\Storage;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -140,8 +141,8 @@ class DashboardPostController extends Controller
         if ($post->image) {
             Storage::delete($post->image);
         }
+        Comment::where('post_id', $post->id)->delete();
         Post::destroy($post->id);
-
 
         return redirect('/dashboard/posts')->with('success', 'Post Has Been Deleted');
     }
