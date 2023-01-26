@@ -21,7 +21,7 @@
 
             <div class="mb-3">
                 <label for="bio" class="form-label">Bio</label>
-                <input type="text" class="form-control " id="bio" name="bio" required autofocus value="{{ auth()->user()->bio }}">
+                <input type="text" class="form-control @error('bio') is-invalid @enderror" id="bio" name="bio" required autofocus value="{{ auth()->user()->bio }}">
                 @error('bio')
                     <div class="invalid-feedback">
                         {{ $message }}

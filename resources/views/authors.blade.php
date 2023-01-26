@@ -9,7 +9,7 @@
                     <div class="card">
                         <img src="storage/{{ $user->avatar }}" class="card-img-top" alt="..." style="width: 100%; height:330px;">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="/posts?author={{ $user->username }}">{{ $user->name }}</a></h5>
+                            <h5 class="card-title"><a href="/posts?author={{ $user->username }}">{{ $user->username }}</a></h5>
                             <p class="card-text">{{ $user->bio }}</p>
                             <a href="/posts?author={{ $user->username }}" class="btn btn-primary">Lebih Lengkap</a>
                         </div>
