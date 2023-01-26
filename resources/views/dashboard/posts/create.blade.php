@@ -50,8 +50,7 @@
             </div>
             <div class="mb-3">
                 <label for="body" class="form-label">Body</label>
-                <input id="body" type="hidden" name="body" value="{{ old('body') }}">
-                <trix-editor input="body"></trix-editor>
+                <textarea name="body" id="editor" value="{{ old('body') }}"></textarea>
                 @error('body')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror

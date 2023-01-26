@@ -20,7 +20,7 @@
             </div>
             <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value="{{ old('slug', $post->slug) }}">
+                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value="{{ old('slug', $post->slug) }}" readonly>
                 @error('slug')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -31,11 +31,11 @@
                 <label for="category" class="form-label">Category</label>
                 <select class="form-select" name="category_id">
                     @foreach ($categories as $category)
-                    @if (old('category_id', $post->category_id) == $category->id)
-                        <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-                    @else
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endif
+                        @if (old('category_id', $post->category_id) == $category->id)
+                            <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                        @else
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
@@ -57,8 +57,9 @@
             </div>
             <div class="mb-3">
                 <label for="body" class="form-label">Body</label>
-                <input id="body" type="hidden" name="body" value="{{ old('body', $post->body) }}">
-                <trix-editor input="body"></trix-editor>
+                {{-- <input id="body" type="hidden" name="body" value="{{ old('body', $post->body) }}"> --}}
+                {{-- <trix-editor input="body"></trix-editor> --}}
+                <textarea name="body" id="editor">{{ $post->body }}</textarea>
                 @error('body')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
@@ -99,5 +100,6 @@
                 imgPreview.src = oFREvent.target.result;
             }
         }
+
     </script>
 @endsection
